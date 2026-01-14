@@ -1,0 +1,266 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+  color: #e8eaed;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 30px;
+  background: linear-gradient(135deg, #1a1f3a 0%, #252b47 100%);
+  border-radius: 12px;
+  border: 2px solid #00d9ff;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #00d9ff;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #a0a4b8;
+  font-size: 1.1rem;
+}
+
+.add-task-section,
+.filter-section,
+.tasks-section {
+  background: #1a1f3a;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  border: 1px solid #3d4463;
+}
+
+h2 {
+  color: #00d9ff;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+#taskForm input,
+#taskForm select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  background: #252b47;
+  border: 1px solid #3d4463;
+  border-radius: 6px;
+  color: #e8eaed;
+  font-size: 1rem;
+}
+
+#taskForm input:focus,
+#taskForm select:focus {
+  outline: none;
+  border-color: #00d9ff;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #00d9ff 0%, #00a8cc 100%);
+  color: #0a0e27;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  background: #252b47;
+  color: #a0a4b8;
+  border: 1px solid #3d4463;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.filter-btn:hover {
+  border-color: #00d9ff;
+  color: #00d9ff;
+}
+
+.filter-btn.active {
+  background: #00d9ff;
+  color: #0a0e27;
+  border-color: #00d9ff;
+}
+
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.task-card {
+  background: #252b47;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #00d9ff;
+  transition: all 0.3s;
+}
+
+.task-card.completed {
+  opacity: 0.6;
+  border-left-color: #a0a4b8;
+}
+
+.task-card.priority-high {
+  border-left-color: #ff6b9d;
+}
+
+.task-card:hover {
+  transform: translateX(5px);
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 10px;
+}
+
+.task-title {
+  font-size: 1.2rem;
+  color: #e8eaed;
+  font-weight: bold;
+  flex: 1;
+}
+
+.task-card.completed .task-title {
+  text-decoration: line-through;
+  color: #a0a4b8;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-icon {
+  padding: 6px 12px;
+  background: #1a1f3a;
+  border: 1px solid #3d4463;
+  border-radius: 4px;
+  color: #a0a4b8;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.btn-icon:hover {
+  background: #252b47;
+  border-color: #00d9ff;
+  color: #00d9ff;
+}
+
+.btn-icon.delete:hover {
+  border-color: #ff6b9d;
+  color: #ff6b9d;
+}
+
+.task-description {
+  color: #a0a4b8;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.task-meta {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+}
+
+.task-priority,
+.task-due-date {
+  padding: 4px 10px;
+  background: #1a1f3a;
+  border-radius: 4px;
+  color: #a0a4b8;
+}
+
+.task-priority.high {
+  background: #ff6b9d;
+  color: #ffffff;
+}
+
+.task-priority.medium {
+  background: #00d9ff;
+  color: #0a0e27;
+}
+
+.task-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 3px 8px;
+  background: #3d4463;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  color: #a0a4b8;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #a0a4b8;
+}
+
+.empty-state p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .task-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .filters {
+    justify-content: center;
+  }
+}
